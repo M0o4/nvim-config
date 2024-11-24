@@ -1,6 +1,9 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	dependencies = {
+		"hiphish/rainbow-delimiters.nvim",
+	},
 	config = function()
 		local config = require("nvim-treesitter.configs")
 		config.setup({
@@ -23,6 +26,11 @@ return {
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
+			rainbow = {
+				enable = true,
+				extended_mode = true,
+				max_file_lines = nil,
+			},
 		})
 	end,
 }
