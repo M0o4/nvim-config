@@ -23,6 +23,7 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
+    vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", { desc = "Open file explorer" })
+    vim.keymap.set("n", "<leader>ee", ":Neotree toggle right<CR>", { desc = "Toggle file explorer" })
   end,
 }
