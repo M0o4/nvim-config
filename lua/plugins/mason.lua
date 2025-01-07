@@ -9,12 +9,12 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "angularls", "html", "ts_ls", "eslint", "cssls" },
+				ensure_installed = { "lua_ls", "angularls", "html", "ts_ls", "cssls", "tailwindcss" },
 			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
 		end,
 	},
 	{
@@ -50,16 +50,39 @@ return {
 			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.eslint.setup({
-				capabilities = capabilities,
-			})
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.eslint.setup({
+
+			lspconfig.cssls.setup({
+				capabilities = capabilities,
+				settings = {
+					css = {
+						validate = true,
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+					scss = {
+						validate = true,
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+					less = {
+						validate = true,
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+				},
+			})
+
+			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.cssls.setup({
+
+			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
 		end,

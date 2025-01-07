@@ -7,6 +7,8 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.stylelint,
+				null_ls.builtins.diagnostics.codespell,
+				null_ls.builtins.formatting.codespell,
 			},
 		})
 

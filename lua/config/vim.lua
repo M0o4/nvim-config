@@ -10,6 +10,12 @@ vim.opt.cursorline = true
 vim.opt.clipboard:append("unnamedplus")
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search higlights" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half page down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go half page up" })
+vim.keymap.set("n", "n", "nzz", { desc = "Find next" })
+vim.keymap.set("n", "N", "Nzz", { desc = "Find prev" })
+vim.keymap.set("n", "{", "{zz", { desc = "Go to prev whitespace" })
+vim.keymap.set("n", "}", "}zz", { desc = "Go to next whitespace" })
 
 -- tabs 
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
