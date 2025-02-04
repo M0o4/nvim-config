@@ -78,9 +78,26 @@ return {
 				},
 			})
 
-			lspconfig.tailwindcss.setup({
-				capabilities = capabilities,
-			})
+lspconfig.tailwindcss.setup({
+  capabilities = capabilities,
+  settings = {
+    tailwindCSS = {
+      classAttributes = {
+        "class",
+        "className",
+        "ngClass",
+        "style",
+        "classNames",
+      },
+      experimental = {
+        classRegex = {
+          -- Matches any key inside `classNames={{ key: 'some classes' }}`
+          { "classNames%s*=%s*{[^}]*([%w_]+):%s*'([^']*)'", "[\"']([^\"']*)[\"']" },
+        },
+      },
+    },
+  },
+})
 
 			lspconfig.eslint.setup({
 				capabilities = capabilities,

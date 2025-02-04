@@ -8,6 +8,9 @@ vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.clipboard:append("unnamedplus")
+vim.opt.breakindent = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search higlights" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go half page down" })
