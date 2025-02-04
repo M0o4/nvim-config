@@ -78,30 +78,33 @@ return {
 				},
 			})
 
-lspconfig.tailwindcss.setup({
-  capabilities = capabilities,
-  settings = {
-    tailwindCSS = {
-      classAttributes = {
-        "class",
-        "className",
-        "ngClass",
-        "style",
-        "classNames",
-      },
-      experimental = {
-        classRegex = {
-          -- Matches any key inside `classNames={{ key: 'some classes' }}`
-          { "classNames%s*=%s*{[^}]*([%w_]+):%s*'([^']*)'", "[\"']([^\"']*)[\"']" },
-        },
-      },
-    },
-  },
-})
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+				settings = {
+					tailwindCSS = {
+						classAttributes = {
+							"class",
+							"className",
+							"ngClass",
+							"style",
+							"classNames",
+						},
+						experimental = {
+							classRegex = {
+								-- Matches any key inside `classNames={{ key: 'some classes' }}`
+								{ "classNames%s*=%s*{[^}]*([%w_]+):%s*'([^']*)'", "[\"']([^\"']*)[\"']" },
+							},
+						},
+					},
+				},
+			})
 
 			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
+
+			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+      -- lspconfig.bacon_ls.setup({ capabilities =capabilities})
 		end,
 	},
 }
